@@ -34,7 +34,7 @@ V_L=[]
 V_R=[]
 P_equ=[]
 T_list=[]
-for i in range(1,500):
+for i in range(1,1000):
     T=T_c-i*0.1
     T_list.append(T)
     #极值点计算与储存
@@ -102,14 +102,14 @@ axs[0].grid()
 #绘制P-T相图
 axs[1].plot(T_list,P_equ,'k',label='Phase Equilibrium')
 axs[1].plot(T_c,P_c/100000,'bo',label='Critical Point')
-axs[1].text(T_c-3,P_c/100000+2,'$(P_c,T_c)$')
-axs[1].text(120,50,'Liquid',size=22)
-axs[1].text(150,15,'Gas',size=22)
+axs[1].text(T_c-7,P_c/100000+2,'$(P_c,T_c)$')
+axs[1].text(80,40,'Liquid',size=22)
+axs[1].text(140,5,'Gas',size=22)
 axs[1].set_title('P-T Phase Diagram')
 axs[1].set_xlabel('T(K)')
 axs[1].set_ylabel('P(bar)')
-axs[1].set_xlim(100,170)
-axs[1].set_ylim(0,70)
+axs[1].set_xlim(45,170)
+axs[1].set_ylim(-10,70)
 axs[1].legend()
 axs[1].grid()
 plt.show()
