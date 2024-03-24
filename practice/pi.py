@@ -1,12 +1,8 @@
-import numpy as np
-import matplotlib.pyplot as plt
+import plotly.graph_objs as go
 
-def func(x):
-    return -np.e**(-x)/(x**2)
-
-x=np.linspace(0.5,3,300)
-y=func(x)
-
-plt.plot(x,y)
-plt.grid()
-plt.show()
+# 二维线图
+trace = go.Scatter(x=[1, 2, 3, 4], y=[10, 11, 12, 13], mode='lines')
+data = [trace]
+layout = go.Layout(title='2D Line Plot')
+fig = go.Figure(data=data, layout=layout)
+fig.show()

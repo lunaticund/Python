@@ -20,6 +20,7 @@ axs[2].plot(t1,t)
 axs[2].set_title('$t-t^*$')
 axs[2].set_xlabel('$t*/^o$')
 axs[2].set_ylabel('$t/^oC$')
+axs[2].legend()
 axs[2].grid()
 
 

@@ -1,11 +1,13 @@
 import numpy as np
 import random 
-import matplotlib.pyplot as plt
-from mpl_toolkits.mplot3d import Axes3D
-#定义拟合函数
+# import matplotlib.pyplot as plt
+# from mpl_toolkits.mplot3d import Axes3D
+
+
+
 def func(x,y):
     return np.pi**2/(1/x+1/y)
-fo = open("test.txt", "w")
+# fo = open("test.txt", "w")
 k1_max=int(input('请输入k1的上限：'))
 k2_max=int(input('请输入k2的上限：'))
 #随机选取k_1和k_2的值，电脑性能好的话，可以取更多点
@@ -35,20 +37,24 @@ for k_1,k_2 in zip(k_1_real,k_2_real):
             cnt+=1
     N_real.append(cnt)
 
-#定义绘图变量
-fig=plt.figure()
-ax=Axes3D(fig)
-fig.add_axes(ax)
+# 定义绘图变量
+# fig=plt.figure()
+# ax=Axes3D(fig)
+# fig.add_axes(ax)
 #绘制原始数据散点图
 #ax.scatter(k_1_real,k_2_real,N_real,marker='o',color='blue',label='Real')
 # #绘制拟合函数的图像
-k_1_real,k_2_real=np.meshgrid(k_1_real,k_2_real)
-N_Fit=func(k_1_real,k_2_real)
-ax.plot_surface(k_1_real,k_2_real,N_Fit,cmap='rainbow',label='Fit')
+
+
+# ax.plot_surface(k_1_real,k_2_real,N_fit,cmap='rainbow',label='Fit')
 #设置图例，绘图
-ax.set_xlabel('m1/m2')
-ax.set_ylabel('m2/m3')
-ax.set_zlabel('Number of Collisions')
-plt.grid()
-plt.legend()
-plt.show()
+# ax.set_xlabel('m1/m2')
+# ax.set_ylabel('m2/m3')
+# ax.set_zlabel('Number of Collisions')
+# plt.grid()
+# plt.legend()
+# plt.show()
+
+
+
+
