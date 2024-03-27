@@ -1,7 +1,7 @@
 import numpy as np
 import random 
-# import matplotlib.pyplot as plt
-# from mpl_toolkits.mplot3d import Axes3D
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
 
 
 
@@ -11,8 +11,8 @@ def func(x,y):
 k1_max=int(input('请输入k1的上限：'))
 k2_max=int(input('请输入k2的上限：'))
 #随机选取k_1和k_2的值，电脑性能好的话，可以取更多点
-k_1_real=np.array([random.uniform(1,k1_max) for _ in range(0,100)])
-k_2_real=np.array([random.uniform(1,k2_max) for _ in range(0,100)])
+k_1_real=np.array([random.uniform(1,k1_max) for _ in range(0,1000)])
+k_2_real=np.array([random.uniform(1,k2_max) for _ in range(0,1000)])
 #保存计算结果
 N_real=[]
 #带入所有k_1,k_2计算碰撞次数
@@ -38,22 +38,24 @@ for k_1,k_2 in zip(k_1_real,k_2_real):
     N_real.append(cnt)
 
 # 定义绘图变量
-# fig=plt.figure()
-# ax=Axes3D(fig)
-# fig.add_axes(ax)
-#绘制原始数据散点图
-#ax.scatter(k_1_real,k_2_real,N_real,marker='o',color='blue',label='Real')
-# #绘制拟合函数的图像
-
-
-# ax.plot_surface(k_1_real,k_2_real,N_fit,cmap='rainbow',label='Fit')
-#设置图例，绘图
-# ax.set_xlabel('m1/m2')
-# ax.set_ylabel('m2/m3')
-# ax.set_zlabel('Number of Collisions')
-# plt.grid()
-# plt.legend()
-# plt.show()
+fig=plt.figure()
+ax=Axes3D(fig)
+fig.add_axes(ax)
+# 绘制原始数据散点图
+ax.scatter(k_1_real,k_2_real,N_real,marker='.',color='blue',label='Real')
+#绘制拟合函数的图像
+x=[x for x in range(100)]
+y=[x for x in range(100)]
+x,y=np.meshgrid(x,y)
+N_fit=func(x,y)
+ax.plot_surface(x,y,N_fit,cmap='rainbow',label='Fit')
+# 设置图例，绘图
+ax.set_xlabel('m1/m2')
+ax.set_ylabel('m2/m3')
+ax.set_zlabel('Number of Collisions')
+plt.grid()
+plt.legend()
+plt.show()
 
 
 
